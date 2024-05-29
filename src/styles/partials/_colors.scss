@@ -1,15 +1,16 @@
 $primarycolor: (
-    "bs-black": #323232,
-    "bs-black-op": hsla(0, 0%, 20%, 0.5),
-    "bs-red": #D22D2D,
-    "bs-silver": #afafaf,
-    "bs-white": #ffffff,
+    "bf-black": #323232,
+    "bf-blue": #0095FF,
+    "bf-red": #D22D2D,
+    "bf-silver": #afafaf,
+    "bf-white": #ffffff,
 );
 
 $secondarycolor: (
-    "bs-darkblack": #000000,
-    "bs-mercury": #E1E1E1,
-    "bs-alabaster": #FAFAFA,
+    "bf-darkblack": #000000,
+    "bf-darkblue": #0065AD,
+    "bf-mercury": #E1E1E1,
+    "bf-alabaster": #FAFAFA,
 );
 
 @function primcolor($color) {
