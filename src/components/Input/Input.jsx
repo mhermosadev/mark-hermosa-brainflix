@@ -1,7 +1,19 @@
+import { useState } from "react";
+
 const Input = ({classname, placeholder, id}) => {
+   const [focus, setFocus] = useState('');
+
+   const onFocus = () => {
+      setFocus('header__input--active')
+   }
+
+   const onBlur = () => {
+      setFocus('')
+   }
+
 
  return (
-    <input className={`site_input ${classname}`} placeholder={placeholder} type="text" name="user-name" id={id}/>
+   <input onFocus={onFocus} onBlur={onBlur} className={`site_input ${classname} ${focus}`} placeholder={placeholder} type="text" name="user-name" id={id}/>
  )
 }
 
