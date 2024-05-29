@@ -46,7 +46,6 @@ body {
     padding: 12px;
     border: 1px solid seccolor(bf-mercury);
     color: seccolor(bf-darkblack);
-    
     @include tablet {
         height: 40px;
     }
@@ -66,6 +65,9 @@ body {
     padding: 0px 32px 0px 32px;
     border: none; 
     color: primcolor(bf-white);
+    &:hover {
+        background-color: seccolor(bf-darkblue)
+    }
     @include tablet {
         @include tab-desk-font-btn;
     }
@@ -81,6 +83,10 @@ header {
         padding: 1rem 2.25rem 1rem 2.25rem;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+    }
+    @include desktop {
+        padding: 1.5rem 7rem 1.5rem 7rem;
     }
 }
 
@@ -92,6 +98,7 @@ header {
     @include tablet {
         margin: 0rem 1.5rem 0rem 0rem;
     }
+
 }
 
 .header__wrapper {
@@ -124,6 +131,9 @@ header {
         padding: 12px;
         outline: 2px solid primcolor(bf-blue);
     }
+    @include desktop {
+        width: 39%;
+    }
     
 }
 
@@ -136,6 +146,7 @@ header {
 
 .header__avatar--tablet {
     display: none;
+    margin-left: 1rem;
     @include tablet {
         display: flex;
     }
@@ -144,9 +155,13 @@ header {
 
 .header__button {
     background-image: url(./assets/icons/upload.svg);
-    margin-right: 1.5rem;
+    margin-right: 1rem;
     @include tablet {
         width: 30%;
+    }
+    @include desktop {
+        width: 20%;
+        margin-right: 1.45rem;
     }
 }
 
@@ -157,14 +172,25 @@ header {
         flex-direction: row;
         justify-content: start;
     }
+    @include desktop {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+    }
 }
 
 //VIDEO//
 
 .main__wrapper--video {
+    display: flex;
+    justify-content: center;
     background-color: seccolor(bf-darkblack);
     @include tablet { 
         padding: $tabLR;
+    }
+    @include desktop {
+        padding: 0rem 12rem 0rem 12rem ;
     }
 }
 
@@ -178,8 +204,11 @@ header {
 .hero {
     padding: 1.5rem 1rem 0rem 1rem;
     width: 100%;
-    @include  tablet {
+    @include tablet {
         padding: 2.25rem 2.25rem 0rem 2.25rem; 
+    }
+    @include desktop {
+        padding: 1.5rem 0rem 0rem 0rem; 
     }
 }   
 
@@ -219,6 +248,9 @@ header {
         @include tablet {
             border-bottom: 1px solid seccolor(bf-mercury);
             margin-bottom: 1.5rem;
+        }
+        @include desktop {
+            padding: 0rem 1.5rem 0rem 0rem;
         }
     }
 
@@ -287,6 +319,9 @@ header {
     @include tablet {
         padding: 0rem 2.25rem;
     }
+    @include desktop {
+        padding: 0rem;
+    }
 }
 
 .form__wrapper {
@@ -294,6 +329,9 @@ header {
     flex-direction: row;
     padding: 0rem 0rem 1rem 0rem;
     border-bottom: 1px solid seccolor(bf-mercury);
+    @include desktop {
+        padding: 0rem 1.5rem 1.5rem 1rem;
+    }
 }
 
 .form__wrapper--tablet {
@@ -301,7 +339,9 @@ header {
         display: flex;
         flex-direction: row;
     }
-    
+    @include desktop {
+        margin: 0rem;
+    }
 }
 
 form {
@@ -346,6 +386,9 @@ form {
             display: flex;
         }
     }
+    @include desktop {
+        margin: 0rem;
+    }
 }
 
 .form__button {
@@ -363,10 +406,16 @@ form {
     @include tablet {
         padding: 1.5rem 2.25rem 0rem 2.25rem;
     }
+    @include desktop {
+        padding: 1.5rem 0rem 0rem 0rem;
+    }
 }
 
 .comment__avatar {
     margin: 0rem 1rem 0rem 0rem;
+    @include desktop {
+        margin: 0rem 1.5rem 0rem 0rem;
+    }
 }
 
 .comment__wrapper {
@@ -374,6 +423,9 @@ form {
     flex-direction: row;
     border-bottom: 1px solid seccolor(bf-mercury);
     margin-bottom: 1rem;
+    @include desktop {
+        padding: 0rem 1.5rem 0rem 1rem;
+    }
 }
 
 .comment__wrapper--name-date {
@@ -407,6 +459,9 @@ form {
     @include tablet {
         padding: 0rem 2.25rem 0rem 2.25rem;
     }
+    @include desktop {
+        padding: 0rem 1.5rem 0rem 1.5rem;
+    }
 }
 
 .videos__title {
@@ -437,14 +492,18 @@ form {
     margin: 0rem 1rem 0rem 0rem;
     border-radius: 4px;
     @include tablet {
-        margin: 0rem 1.5rem 0rem 0rem;
+        margin: 0rem 1rem 0rem 0rem;
+    }
+    @include desktop {
+        max-width: 117px;
+        min-width: 117px;
+        width: 30%;
     }
 }
 
 .video__thumbnail  {
     width: 100%;
     height: 100%;
-    
     border-radius: 4px;
 }
 
@@ -463,5 +522,28 @@ form {
 
     @include tablet {
         @include tab-desk-font-sml;
+    }
+}
+
+//DESKTOP//
+
+.main__wrapper--desktop {
+    @include desktop {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.main__wrapper--left {
+    @include desktop {
+        width: 75%;
+        border-right: 1px solid seccolor(bf-mercury);
+        padding-left: 7rem;
+    }
+}
+
+.main__wrapper--right {
+    @include desktop {
+        padding-right: 7rem;
     }
 }

@@ -16,22 +16,27 @@ const Main = () => {
         <main>
             <FeaturedVideo 
             poster={featured.image}/>
-            <FeaturedVideoInfo 
-            title={featured.title} 
-            channel={featured.channel} 
-            date={new Date(featured.timestamp).toLocaleDateString()}
-            views={featured.views} 
-            likes={featured.likes} 
-            description={featured.description}
-            counter={featured.comments.length}
-            />
+            <div className="main__wrapper--desktop">
+                <aside className="main__wrapper--left">
+                    <FeaturedVideoInfo 
+                    title={featured.title} 
+                    channel={featured.channel} 
+                    date={new Date(featured.timestamp).toLocaleDateString()}
+                    views={featured.views} 
+                    likes={featured.likes} 
+                    description={featured.description}
+                    counter={featured.comments.length}
+                    />
+                    <Form />
+                    <CommentsList/>
+                </aside>
             
-            <Form />
-            <CommentsList/>
-            <VideosList />
+                <aside className="main__wrapper--right" >
+                    <VideosList />  
+                </aside>
+            </div>
         </main>
         </>
-     
     )
        
    }
