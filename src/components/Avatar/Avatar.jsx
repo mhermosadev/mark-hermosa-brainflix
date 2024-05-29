@@ -1,7 +1,7 @@
 const Avatar = ({classname}) => {
 
     return (
-       <div className={classname}></div>
+       <div className={`user__avatar ${classname}`}></div>
     )
        
    }

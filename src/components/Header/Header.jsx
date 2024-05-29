@@ -13,15 +13,16 @@ const Header = () => {
             <div className='header__wrapper--tablet'>
                 <div className='header__wrapper'>
                     <Input
+                    placeholder='Search'
                     classname='header__input'/>
                     <Avatar
-                    classname='user__avatar header__avatar header__avatar--mobile'/>
+                    classname='header__avatar header__avatar--mobile'/>
                 </div>
                 <Button 
                 classname='header__button'
                 text='UPLOAD'/>
                 <Avatar
-                    classname='user__avatar header__avatar header__avatar--tablet '/>
+                    classname='header__avatar header__avatar--tablet '/>
             </div>
         </header>
         </> 

@@ -1,5 +1,6 @@
 import FeaturedVideo from "../FeaturedVideo/FeaturedVideo";
 import FeaturedVideoInfo from "../FeaturedVideoInfo/FeaturedVideoInfo"
+import Form from "../Form/Form";
 import videoArr from '../../data/video-details.json';
 import { useState } from "react";
 
@@ -21,10 +22,9 @@ const Main = () => {
             likes={featured.likes} 
             description={featured.description}
             counter={featured.comments.length}
-            
-            
             />
             
+            <Form />
 
         </main>
         </>

@@ -1,7 +1,7 @@
-const Input = ({classname}) => {
+const Input = ({classname, placeholder, id}) => {
 
  return (
-    <input className={`site_input ${classname}`} placeholder='Search'/>
+    <input className={`site_input ${classname}`} placeholder={placeholder} type="text" name="user-name" id={id}/>
  )
 }
 

@@ -40,6 +40,7 @@ body {
     border-radius: 4px;
     padding: 12px;
     border: 1px solid seccolor(bf-mercury);
+    color: seccolor(bf-darkblack);
     @include tablet {
         height: 40px;
     }
@@ -63,7 +64,7 @@ body {
         @include tab-desk-font-btn;
     }
 }
-//header//
+//HEADER//
 
 header {
     @include flex-col;
@@ -149,11 +150,14 @@ header {
 
 .main__wrapper--video {
     background-color: seccolor(bf-darkblack);
-    padding: $tabLR;
+    @include tablet { 
+        padding: $tabLR;
+    }
 }
 
 .main__video {
     width: 100%;
+    height: 100%;
 }
 
 //VIDEO INFO//
@@ -162,9 +166,9 @@ header {
     padding: 1.5rem 1rem 1rem 1rem;
     width: 100%;
     @include  tablet {
-        padding: 2.25rem 2.25rem 1.5rem 2.25rem; 
+        padding: 2.25rem 2.25rem 2.25rem 2.25rem; 
     }
-}
+}   
 
 .hero__title {
     margin: 0rem 0rem 1rem 0rem;
@@ -256,7 +260,57 @@ header {
     }
     &--blacktext {
         color: primcolor(bf-black);
-        margin: 0rem 0rem 1.5rem 0rem;
+        margin: 1rem 0rem 1rem 0rem;
+        @include tablet {
+            margin: 1.5rem 0rem 1.5rem 0rem;
+        }
+    }
+}
+
+//FORM//
+
+.form__wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+}
+
+.comment__form {
+    @include flex-col;
+    width: 100%;
+}
+
+.comment__avatar {
+    margin: 1.5rem 1rem 0rem 0rem;
+}
+
+.comment__label {
+    @include mob-font-btn;
+    font-weight: weight(lrg);
+    color: primcolor(bf-silver);
+    padding-bottom: 4px;
+}
+
+.comment__input {
+    margin: 0rem 0rem 1rem 0rem;
+
+    &--mobile {
+        @extend .site_input;
+        height: 150px;
+        resize: none;
+        @include tablet {
+            display: none;
+        }
     }
 
+    &--tablet {
+        display: none;
+        @include tablet {
+            display: flex;
+        }
+    }
+}
+
+.comment__button {
+    background-image: url(./assets/icons/add_comment.svg);
 }
