@@ -5,7 +5,7 @@
 @import './styles/partials/mediaQ';
 @import './styles/partials/padding';
 
-//globals//
+//GLOBALS//
 
 body { 
     width: 100%;
@@ -98,7 +98,6 @@ header {
     @include tablet {
         margin: 0rem 1.5rem 0rem 0rem;
     }
-
 }
 
 .header__wrapper {
@@ -134,7 +133,6 @@ header {
     @include desktop {
         width: 39%;
     }
-    
 }
 
 .header__avatar--mobile {
@@ -150,7 +148,6 @@ header {
     @include tablet {
         display: flex;
     }
-    
 }
 
 .header__button {
@@ -413,7 +410,7 @@ form {
 
 .comment__avatar {
     margin: 0rem 1rem 0rem 0rem;
-    @include desktop {
+    @include tablet {
         margin: 0rem 1.5rem 0rem 0rem;
     }
 }
@@ -421,8 +418,14 @@ form {
 .comment__wrapper {
     display: flex;
     flex-direction: row;
+    width: 100%;
     border-bottom: 1px solid seccolor(bf-mercury);
     margin-bottom: 1rem;
+
+    &--text {
+        width: 100%;
+    }
+
     @include desktop {
         padding: 0rem 1.5rem 0rem 1rem;
     }
@@ -432,6 +435,10 @@ form {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    @include tablet {
+        width: 100%;
+        margin: 0rem;
+    }
 }
 
 .comment__text {

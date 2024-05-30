@@ -1,28 +1,23 @@
-import Comments from "./Comments";
-import commentArr from '../../data/video-details.json';
-import { useState } from "react";
+import Avatar from "../Avatar/Avatar"
 
-const CommentsList = () => {
-
-    const [comments, setComments] = useState(commentArr[0].comments);
-
-    console.log(comments)
-
+const Comments = ({name, date, comment, id}) => {
     return (
-        <div className="comments">
-            {
-             comments.map((data, index) => {
-                return (
-                    <Comments
-                    id={data.id}
-                    name={data.name}
-                    date={new Date(data.timestamp).toLocaleDateString()} 
-                    comment={data.comment}/>
-                )
-            })
-            }
+        <>
+        <div className="comment__wrapper">
+            <Avatar 
+            classname='comment__avatar user__avatar user__avatar--graybg'/>
+            <div className="comment__wrapper--text">
+                <div className='comment__wrapper--name-date'>
+                    <p className="comment__text comment__text--name">{name}</p>
+                    <p className="comment__text comment__text--date">{date}</p>
+                </div>
+                <div className='comment__wrapper--comment'>
+                    <p className="comment__text comment__text--comment">{comment}</p>
+                </div>
+            </div>
         </div>
+        </>
     )
 }
 
-export default CommentsList;
+export default Comments;

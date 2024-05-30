@@ -1,38 +1,72 @@
 import FeaturedVideo from "../FeaturedVideo/FeaturedVideo";
-import FeaturedVideoInfo from "../FeaturedVideoInfo/FeaturedVideoInfo"
+import FeaturedVideoInfo from "../FeaturedVideo/FeaturedVideoInfo"
 import Form from "../Form/Form";
-import CommentsList from "../Comments/CommentsList";
+import Comments from '../Comments/CommentsList';
 import VideosList from "../Videos/VideosList";
 import videoArr from '../../data/video-details.json';
 import { useState } from "react";
+import commentArr from '../../data/video-details.json';
 
 const Main = () => {
 
-   const [featured, setfeatured] = useState(videoArr[0])
-   console.log(featured)
+    const [featured, setFeatured] = useState(videoArr[0].image)
+    const [title, setTitle] = useState(videoArr[0].title)
+    const [channel, setChannel] = useState(videoArr[0].channel)
+    const [timestamp, setTimestamp] = useState(new Date(videoArr[0].timestamp).toLocaleDateString())
+    const [description, setDescription] = useState(videoArr[0].description)
+    const [likes, setLikes] = useState(videoArr[0].likes)
+    const [views, setViews] = useState(videoArr[0].views)
+    const [comment, setComment] = useState(videoArr[0].comments)
+
+    console.log(views)
 
     return (
         <>
         <main>
             <FeaturedVideo 
-            poster={featured.image}/>
+            poster={featured}/>
+
             <div className="main__wrapper--desktop">
                 <aside className="main__wrapper--left">
                     <FeaturedVideoInfo 
-                    title={featured.title} 
-                    channel={featured.channel} 
-                    date={new Date(featured.timestamp).toLocaleDateString()}
-                    views={featured.views} 
-                    likes={featured.likes} 
-                    description={featured.description}
-                    counter={featured.comments.length}
+                    title={title}
+                    channel={channel}
+                    timestamp={timestamp}
+                    description={description}
+                    likes={likes}
+                    views={views}
                     />
                     <Form />
-                    <CommentsList/>
+    
+                    {
+                    comment.map((data, index,) => {
+                        return (
+                            <div className="comments">
+                                <Comments 
+                                id={data.id}
+                                name={data.name}
+                                date={data.timestamp}
+                                comment={data.comment}
+                                />
+                            </div>
+                           
+                        )
+                    })
+                    }
                 </aside>
             
                 <aside className="main__wrapper--right" >
-                    <VideosList />  
+                    <VideosList 
+                    setFeatured={setFeatured}
+                    setTitle={setTitle}
+                    setChannel={setChannel}
+                    setTimestamp={setTimestamp}
+                    setDescription={setDescription}
+                    setLikes={setLikes}
+                    setViews={setViews}
+                    setComment={setComment}
+
+                    />  
                 </aside>
             </div>
         </main>

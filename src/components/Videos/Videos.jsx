@@ -1,8 +1,8 @@
-const Videos = ({name, thumbnail, title, id}) => {
+const Videos = ({name, thumbnail, title, id, onclick}) => {
     return (
         <>
         <div className="video__wrapper">
-            <div className="video__wrapper--thumnbnail">
+            <div onClick={onclick}className="video__wrapper--thumnbnail">
                 <img className='video__thumbnail'src={thumbnail} alt="videos"/>
             </div>
             <div className='video__wrapper--text'>

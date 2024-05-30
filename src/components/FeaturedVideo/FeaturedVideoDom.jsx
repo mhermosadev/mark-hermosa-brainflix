@@ -1,4 +1,4 @@
-const FeaturedVideoInfo = ({title, channel, description, views, likes, id, date, counter}) => {
+const FeaturedVideoDom = ({title, channel, description, views, likes, id, date, counter}) => {
 
     return (
         <>
@@ -39,5 +39,5 @@ const FeaturedVideoInfo = ({title, channel, description, views, likes, id, date,
        
    }
    
-   export default FeaturedVideoInfo;
+   export default FeaturedVideoDom;
    
