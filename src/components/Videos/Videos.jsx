@@ -1,4 +1,4 @@
-const Videos = ({name, thumbnail, title, id, onclick}) => {
+const Videos = ({name, thumbnail, title, onclick}) => {
     return (
         <>
         <div className="video__wrapper">

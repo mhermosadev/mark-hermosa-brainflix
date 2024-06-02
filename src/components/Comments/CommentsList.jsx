@@ -1,6 +1,6 @@
 import Avatar from "../Avatar/Avatar"
 
-const Comments = ({name, date, comment, id}) => {
+const Comments = ({name, date, comment}) => {
     return (
         <>
         <div className="comment__wrapper">

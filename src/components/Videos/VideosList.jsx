@@ -2,7 +2,7 @@ import Videos from "./Videos";
 import videosArr from '../../data/video-details.json';
 import { useState } from "react";
 
-const VideosList = ({setFeatured, setTitle, setChannel, setTimestamp, setDescription, setComment, setLikes, setViews}) => {
+const VideosList = ({setFeatured, setTitle, setChannel, setTimestamp, setDescription, setComment, setLikes, setViews, setCounter}) => {
 
     const [videos, setVideos] = useState(videosArr.slice(1));
 
@@ -20,11 +20,12 @@ const VideosList = ({setFeatured, setTitle, setChannel, setTimestamp, setDescrip
                     setLikes(data.likes)
                     setViews(data.likes)
                     setComment(data.comments)
+                    setCounter(data.comments.length)
                 }
 
                 return (
                     <Videos 
-                    id={data.id}
+                    key={data.id}
                     thumbnail={data.image}
                     name={data.channel}
                     title={data.title}

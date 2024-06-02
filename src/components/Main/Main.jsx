@@ -16,9 +16,8 @@ const Main = () => {
     const [description, setDescription] = useState(videoArr[0].description)
     const [likes, setLikes] = useState(videoArr[0].likes)
     const [views, setViews] = useState(videoArr[0].views)
+    const [counter, setCounter] = useState(videoArr[0].comments.length)
     const [comment, setComment] = useState(videoArr[0].comments)
-
-    console.log(views)
 
     return (
         <>
@@ -35,7 +34,7 @@ const Main = () => {
                     description={description}
                     likes={likes}
                     views={views}
-                    />
+                    counter={counter} />
                     <Form />
     
                     {
@@ -43,13 +42,12 @@ const Main = () => {
                         return (
                             <div className="comments">
                                 <Comments 
-                                id={data.id}
+                                key={data.id}
                                 name={data.name}
-                                date={data.timestamp}
+                                date={new Date(data.timestamp).toLocaleDateString()}
                                 comment={data.comment}
                                 />
                             </div>
-                           
                         )
                     })
                     }
@@ -65,8 +63,7 @@ const Main = () => {
                     setLikes={setLikes}
                     setViews={setViews}
                     setComment={setComment}
-
-                    />  
+                    setCounter={setCounter} />  
                 </aside>
             </div>
         </main>
