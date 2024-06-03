@@ -1,0 +1,565 @@
+@import './styles/partials/colors';
+@import './styles/partials/display';
+@import './styles/partials/fontfamily';
+@import './styles/partials/globals';
+@import './styles/partials/mediaQ';
+@import './styles/partials/padding';
+
+//GLOBALS//
+
+body { 
+    width: 100%;
+    padding: 0rem;
+    margin: 0rem;
+}
+
+.user__avatar {
+    background-image: url(./assets/images/Mohan-muruge.jpg);
+    background-size: cover;
+    width: 2.25rem;
+    height: 2.25rem;
+    min-height: 36px;
+    min-width: 36px;
+    max-height: 36px;
+    max-width: 36px;
+    border-style: hidden;
+    background-color: seccolor(bf-mercury);
+    border-radius: 50%;
+    &--graybg {
+        background-image: none;
+        
+    }
+    @include tablet {
+        min-height: 40px;
+        min-width: 40px;
+        max-height: 40px;
+        max-width: 40px;
+    }
+}
+
+.site_input {
+    width: 100%;
+    height: 2.25rem;
+    min-height: 36px;
+    min-width: 240px;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    border: 0.0625rem solid seccolor(bf-mercury);
+    color: seccolor(bf-darkblack);
+    @include tablet {
+        height: 2.5rem;
+    }
+}
+
+.cta_button {
+    @include mob-font-btn;
+    background-position: 5% 50%;
+    background-size: 1.5rem;
+    background-repeat: no-repeat;
+    font-weight: weight(lrg);
+    height: 2.5rem;
+    width: 100%;
+    min-height: 40px;
+    border-radius: 0.25rem;
+    background-color: primcolor(bf-blue);
+    padding: 0rem 2rem 0rem 2rem;
+    border: none; 
+    color: primcolor(bf-white);
+    &:hover {
+        background-color: seccolor(bf-darkblue)
+    }
+    @include tablet {
+        @include tab-desk-font-btn;
+    }
+}
+//HEADER//
+
+header {
+    @include flex-col;
+    width: 100%;
+    align-items: center;
+    padding: 1rem;
+    @include tablet {
+        padding: 1rem 2.25rem 1rem 2.25rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    @include desktop {
+        padding: 1.5rem 7rem 1.5rem 7rem;
+    }
+}
+
+.header__logo {
+    width: 100%;
+    max-width: 120px;
+    max-height: 25px;
+    margin-bottom: 1rem;
+    @include tablet {
+        margin: 0rem 1.5rem 0rem 0rem;
+    }
+}
+
+.header__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    @include tablet {
+        margin: 0rem;
+        justify-content: end;
+    }
+}
+
+.header__input {
+    background-image: url(./assets/icons/search.svg);
+    background-position: 1rem 50%;
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    padding-left: 2.5rem;
+    width: 100%;
+    margin-right: 1rem;
+    @include tablet {
+        width: 0rem;
+        margin-right: 1.5rem;
+        padding-left: 2.5rem;
+    }
+    &--active {
+        background-image: none;
+        padding: 0.75rem;
+        outline: 0.125rem solid primcolor(bf-blue);
+    }
+    @include desktop {
+        width: 39%;
+    }
+}
+
+.header__avatar--mobile {
+    display: flex;
+    @include tablet {
+        display: none;
+    }
+}
+
+.header__avatar--tablet {
+    display: none;
+    margin-left: 1rem;
+    @include tablet {
+        display: flex;
+    }
+}
+
+.header__button {
+    background-image: url(./assets/icons/upload.svg);
+    margin-right: 1rem;
+    @include tablet {
+        width: 30%;
+    }
+    @include desktop {
+        width: 20%;
+        margin-right: 1.45rem;
+    }
+}
+
+.header__wrapper--tablet {
+    width: 100%;
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+    @include desktop {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+    }
+}
+
+//VIDEO//
+
+.main__wrapper--video {
+    display: flex;
+    justify-content: center;
+    background-color: seccolor(bf-darkblack);
+    @include tablet { 
+        padding: $tabLR;
+    }
+    @include desktop {
+        padding: 0rem 12rem 0rem 12rem ;
+    }
+}
+
+.main__video {
+    width: 100%;
+    height: 100%;
+}
+
+//VIDEO INFO//
+
+.hero {
+    padding: 1.5rem 1rem 0rem 1rem;
+    width: 100%;
+    @include tablet {
+        padding: 2.25rem 2.25rem 0rem 2.25rem; 
+    }
+    @include desktop {
+        padding: 1.5rem 0rem 0rem 0rem; 
+    }
+}   
+
+.hero__title {
+    margin: 0rem 0rem 1rem 0rem;
+    @include mob-font-lrg;
+    font-weight: weight(lrg);
+    @include tablet {
+        @include tab-desk-font-lrg;
+        margin: 0rem 0rem 1.5rem 0rem;
+    }
+}
+
+.hero__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border-bottom: 0.0625rem solid seccolor(bf-mercury);
+
+    &--text {
+        width: 100%;
+        @include flex-col;
+        justify-content: space-between;
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+        }
+    }
+    &--icon {
+        display: flex;
+        align-items: end;
+        justify-content: end;
+        width: fit-content;
+        @include tablet {
+            margin-left: 1rem;
+        }
+    } 
+
+    &--tablet {
+        @include tablet {
+            border-bottom: 0.0625rem solid seccolor(bf-mercury);
+            margin-bottom: 1.5rem;
+        }
+        @include desktop {
+            padding: 0rem 1.5rem 0rem 0rem;
+        }
+    }
+
+    @include tablet {
+        border-bottom: none;
+        margin: 0rem;
+    }
+}
+
+.hero__wrapper--text-selfend {
+    display: flex;
+    justify-content: end;
+}
+
+.hero__img {
+    &--icon-likes {
+        width:  6.7vw;
+        height: 100%;
+        margin: 0rem 0.25rem 1.06rem 0rem;
+        background-image: url(./assets/icons/likes.svg);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        @include tablet {
+            width:  3.5vw;
+            margin: 0rem 0.25rem 1.15rem 0rem;
+        }
+        @include desktop {
+            width:  2.25vw;     
+        }
+    }
+    &--icon-views {
+        @extend .hero__img--icon-likes;
+        background-image: url(./assets/icons/views.svg);
+    }
+}
+
+.hero__text {
+    @include mob-font-sml;
+    margin: 0rem 0rem 1rem 0rem;
+    color: primcolor(bf-silver);
+    @include tablet {
+        @include tab-desk-font-sml;
+        margin: 0rem 0rem 1rem 0rem;
+
+    }
+    &--blacktext-demi {
+        font-weight: weight(med);
+        color: primcolor(bf-black);
+        @include tablet {
+            margin: 0rem 1.5rem 1rem 0rem;
+        }
+       
+    }
+    &--blacktext {
+        color: primcolor(bf-black);
+        margin: 1rem 0rem 1rem 0rem;
+        @include tablet {
+            margin: 1.5rem 0rem 1.5rem 0rem;
+        }
+        @include desktop {
+            margin: 1.5rem 1.5rem 1.5rem 0rem;
+        }
+    }
+}
+
+//FORM//
+
+.form {
+    padding: 0rem 1rem;
+    @include tablet {
+        padding: 0rem 2.25rem;
+    }
+    @include desktop {
+        padding: 0rem;
+    }
+}
+
+.form__wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 0rem 0rem 1rem 0rem;
+    border-bottom: 0.0625rem solid seccolor(bf-mercury);
+    @include desktop {
+        padding: 0rem 1.5rem 1.5rem 1rem;
+    }
+}
+
+.form__wrapper--tablet {
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+    }
+    @include desktop {
+        margin: 0rem;
+    }
+}
+
+form {
+    @include flex-col;
+    width: 100%;
+}
+
+.form__avatar {
+    margin: 1.5rem 1rem 0rem 0rem;
+    @include tablet {
+        margin: 1.5rem 1.5rem 0rem 0rem;  
+    }
+}
+
+.form__label {
+    @include mob-font-btn;
+    font-weight: weight(lrg);
+    color: primcolor(bf-silver);
+    padding-bottom: 0.25rem;
+}
+
+.form__input {
+    margin: 0rem 0rem 1rem 0rem;
+
+    &--active {
+        padding: 0.75rem;
+        outline: 0.125rem solid primcolor(bf-blue);
+    }
+
+    &--mobile {
+        @extend .site_input;
+        height: 9.375rem;
+        resize: none;
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &--tablet {
+        display: none;
+        @include tablet {
+            display: flex;
+        }
+    }
+    @include desktop {
+        margin: 0rem;
+    }
+}
+
+.form__button {
+    background-image: url(./assets/icons/add_comment.svg);
+    @include tablet {
+        width: 35%;
+        margin-left: 1.5rem;
+    }
+}
+
+//COMMENT//
+
+.comments {
+    padding: 1rem 1rem 0rem 1rem;
+    @include tablet {
+        padding: 1.5rem 2.25rem 0rem 2.25rem;
+    }
+    @include desktop {
+        padding: 1.5rem 0rem 0rem 0rem;
+    }
+}
+
+.comment__avatar {
+    margin: 0rem 1rem 0rem 0rem;
+    @include tablet {
+        margin: 0rem 1.5rem 0rem 0rem;
+    }
+}
+
+.comment__wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 0.0625rem solid seccolor(bf-mercury);
+    margin-bottom: 1rem;
+
+    &--text {
+        width: 100%;
+    }
+
+    @include desktop {
+        padding: 0rem 1.5rem 0rem 1rem;
+    }
+}
+
+.comment__wrapper--name-date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include tablet {
+        width: 100%;
+        margin: 0rem;
+    }
+}
+
+.comment__text {
+    margin: 0rem 0rem 1rem 0rem;
+    color: primcolor(bf-black);
+    @include mob-font-sml;
+
+    &--name {
+        font-weight: weight(med);
+    }
+
+    &--date {
+        color: primcolor(bf-silver);
+    }
+
+    @include tablet {
+        @include tab-desk-font-sml;
+    }
+}
+
+//VIDEOS//
+
+.videos {
+    padding: 0rem 1rem 1rem 1rem;
+    @include tablet {
+        padding: 0rem 2.25rem 0rem 2.25rem;
+    }
+    @include desktop {
+        padding: 0rem 1.5rem 0rem 1.5rem;
+    }
+}
+
+.videos__title {
+    @include mob-font-med;
+    font-weight: weight(med);
+    color: primcolor(bf-silver);
+    margin: 1rem 0rem ;
+    @include tablet {
+        margin: 1.5rem 0rem ;
+    }
+}
+
+.video__wrapper {
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    margin: 0rem 0rem 1rem 0rem;
+    @include tablet {
+        margin: 0rem 0rem 1.5rem 0rem;
+    }
+}
+
+.video__wrapper--thumnbnail {
+    width: 50%;
+    height: fit-content;
+    min-width: 100px;
+    max-width: 100px;
+    margin: 0rem 1rem 0rem 0rem;
+    border-radius: 0.25rem;
+    @include tablet {
+        margin: 0rem 1rem 0rem 0rem;
+    }
+    @include desktop {
+        max-width: 117px;
+        min-width: 117px;
+        width: 30%;
+    }
+}
+
+.video__thumbnail  {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.25rem;
+}
+
+.video__wrapper--text {
+    @include flex-col;
+    justify-content: space-between;
+
+}
+
+.video__text {
+    @include mob-font-sml;
+    margin: 0rem;
+    &--title {
+        font-weight: weight(med);
+    }
+
+    @include tablet {
+        @include tab-desk-font-sml;
+    }
+}
+
+//DESKTOP//
+
+.main__wrapper--desktop {
+    @include desktop {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.main__wrapper--left {
+    @include desktop {
+        width: 75%;
+        border-right: 0.0625rem solid seccolor(bf-mercury);
+        padding-left: 7rem;
+    }
+}
+
+.main__wrapper--right {
+    @include desktop {
+        padding-right: 7rem;
+    }
+}

@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'avenir';
+    font-weight: 400;
+    src: url(../../assets/fonts/AvenirNextLTPro.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'avenir';
+    font-weight: 700;
+    src: url(../../assets/fonts/AvenirNextLTProBold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'avenir';
+    font-weight: 600;
+    src: url(../../assets/fonts/AvenirNextLTProDemi.ttf) format('truetype');
+}
+
+/**FONT WEIGHT**/
+
+$fontweight: (
+    "sml": 400,
+    "med": 600,
+    "lrg": 700,
+);
+
+@function weight($weight) {
+    @return map-get($fontweight, $weight) 
+};
+
+/**MOBILE**/
+
+@mixin mob-font-lrg{
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+@mixin mob-font-med{
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+}
+
+@mixin mob-font-sml{
+    font-size: .8125rem;
+    line-height: 1.125rem;
+}
+
+@mixin mob-font-btn{
+    font-size: .625rem;
+    line-height: 1.25rem;
+}
+
+/**TABLET AND DESKTOP**/
+
+
+@mixin tab-desk-font-lrg {
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+}
+
+@mixin tab-desk-font-med {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+}
+
+@mixin tab-desk-font-sml {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+}
+
+@mixin tab-desk-font-btn {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+}

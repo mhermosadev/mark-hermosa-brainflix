@@ -1,0 +1,22 @@
+$primarycolor: (
+    "bf-black": #323232,
+    "bf-blue": #0095FF,
+    "bf-red": #D22D2D,
+    "bf-silver": #afafaf,
+    "bf-white": #ffffff,
+);
+
+$secondarycolor: (
+    "bf-darkblack": #000000,
+    "bf-darkblue": #0065AD,
+    "bf-mercury": #E1E1E1,
+    "bf-alabaster": #FAFAFA,
+);
+
+@function primcolor($color) {
+    @return map-get($primarycolor, $color) 
+};
+
+@function seccolor($color) {
+    @return map-get($secondarycolor, $color) 
+};
