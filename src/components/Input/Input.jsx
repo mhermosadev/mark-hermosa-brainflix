@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Input = ({classname, placeholder, id}) => {
+const Input = ({classname, placeholder, name}) => {
    const [focus, setFocus] = useState('');
 
    const onFocus = () => {
@@ -13,7 +13,7 @@ const Input = ({classname, placeholder, id}) => {
 
 
  return (
-   <input onFocus={onFocus} onBlur={onBlur} className={`site_input ${classname} ${focus}`} placeholder={placeholder} type="text" name="user-name" id={id}/>
+   <input onFocus={onFocus} onBlur={onBlur} className={`site_input ${classname} ${focus}`} placeholder={placeholder} type="text" name={name} />
  )
 }
 

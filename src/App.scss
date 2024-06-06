@@ -45,7 +45,9 @@ body {
     border-radius: 0.25rem;
     padding: 0.75rem;
     border: 0.0625rem solid seccolor(bf-mercury);
-    color: seccolor(bf-darkblack);
+    background-color: seccolor(bf-alabaster);
+    &::placeholder {
+        color: seccolor(bf-darkblack); }
     @include tablet {
         height: 2.5rem;
     }
@@ -90,6 +92,10 @@ header {
     }
 }
 
+.header__link  {
+    margin-right: 1.5rem;
+}
+
 .header__logo {
     width: 100%;
     max-width: 120px;
@@ -129,6 +135,7 @@ header {
         background-image: none;
         padding: 0.75rem;
         outline: 0.125rem solid primcolor(bf-blue);
+        background-color: primcolor(bf-white);
     }
     @include desktop {
         width: 39%;
@@ -147,17 +154,19 @@ header {
     margin-left: 1rem;
     @include tablet {
         display: flex;
+        margin-left: 0rem;
     }
 }
 
 .header__button {
     background-image: url(./assets/icons/upload.svg);
-    margin-right: 1rem;
+    width: 100%;
     @include tablet {
-        width: 30%;
+        width: 100%;
+        margin-right: 1.5rem
     }
     @include desktop {
-        width: 20%;
+        width: 88.9%;
         margin-right: 1.45rem;
     }
 }
@@ -562,4 +571,173 @@ form {
     @include desktop {
         padding-right: 7rem;
     }
+}
+
+
+
+
+
+
+
+
+
+//UPLOAD PAGE//
+
+.upload {
+    padding: 1rem;
+    border-top: 1px solid seccolor(bf-mercury);
+    @include tablet {
+        padding: 0rem 2.25rem
+    }
+    @include desktop {
+        padding: 0rem 7rem;
+    }
+}
+
+.upload__wrapper--desktop {
+    @include desktop {
+        width: 100%;
+        display: flex;
+        align-items: baseline;
+    }
+}
+
+
+.upload__wrapper--title {
+    @include tablet {
+        border-bottom: 1px solid seccolor(bf-mercury);
+        padding: 1.5rem 0rem;
+        margin-bottom: 1.5rem;
+    }
+}
+    
+
+.upload__title {
+    @include mob-font-lrg;
+    font-weight: weight(lrg);
+    color: primcolor(bf-black);
+    margin: .5rem 0rem 1rem 0rem;
+    @include tablet {
+        @include tab-desk-font-lrg;
+        margin: 0rem
+    }
+    
+}
+
+.upload__wrapper--img {
+    @include desktop {
+        width: 100%;
+        max-width: 366.5px;
+        padding-right: 1.5rem;
+        border-bottom: 1px solid seccolor(bf-mercury);
+    }
+}
+
+.upload__text {
+    @include mob-font-sml;
+    font-weight: weight(med);
+    color: primcolor(bf-silver);
+    margin: 0rem 0rem 4px 0rem;
+    @include tablet {
+        @include tab-desk-font-sml;
+    }
+    @include tablet {
+        @include tab-desk-font-sml;
+        margin: 0rem;
+    }
+}
+
+.upload__image {
+    width: 100%;
+    @include tablet {
+        width: 50%;
+        margin-bottom: 1.5rem;
+    }
+    @include desktop {
+        width: 100%;
+    }
+}
+
+//UPLOAD FORM// 
+
+.upload-form__wrapper {
+    @include flex-col;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0rem;  
+    @include tablet {
+        padding: 0rem;
+    }
+}
+
+.upload-form__wrapper--input  {
+    @include tablet {
+        border-bottom: 1px solid seccolor(bf-mercury);
+    }
+    @include desktop {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid seccolor(bf-mercury);
+    }
+}
+
+.upload-form__label {
+    margin: 0rem 0rem 4px 0rem;
+    color: primcolor(bf-silver);
+    @include mob-font-sml;
+    font-weight: weight(med);
+    @include tablet {
+        @include tab-desk-font-sml;
+    }
+}
+
+.upload-form__input {
+    margin: 0rem 0rem 1rem 0rem;
+    &--description {
+        height: 9.375rem;
+        resize: none;
+        @include desktop {
+            height: 6rem;
+        }
+    }
+    @include tablet {
+        margin: 0rem 0rem 1.5rem 0rem;
+    }
+}
+
+.upload-form__wrapper--button {
+    @include flex-col;
+    align-items: center;
+    width: 100%;
+    @include tablet {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: end;
+        align-items: center;
+        width: 100%;
+        padding: 1.5rem 0rem;
+    }
+    @include desktop {
+        padding-top: 0rem;
+    }
+}
+
+.upload-form__button {
+    background-image: url(../src/assets/icons/publish.svg);
+    margin-bottom: 1rem;
+    @include tablet {
+        width: 20%;
+        margin: 0rem 0rem 0rem 5rem;
+    }
+    @include desktop {
+        width: 23%;
+    }
+}
+
+.upload-form__button--cancel {
+    background-color: primcolor(bf-white);
+    color: primcolor(bf-blue);
+    width: fit-content;
+    padding: 0rem;
+    margin: 0rem;
 }
