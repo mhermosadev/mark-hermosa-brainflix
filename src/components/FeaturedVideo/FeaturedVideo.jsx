@@ -1,3 +1,5 @@
+import './FeaturedVideo.scss';
+
 const FeaturedVideo = ({poster}) => {
 
     return (

@@ -1,4 +1,5 @@
 import Avatar from "../Avatar/Avatar"
+import './CommentsList.scss';
 
 const Comments = ({name, date, comment}) => {
     return (

@@ -1,8 +1,10 @@
-const Videos = ({name, thumbnail, title, onclick}) => {
+import './Videos.scss';
+
+const Videos = ({name, thumbnail, title}) => {
     return (
         <>
         <div className="video__wrapper">
-            <div onClick={onclick}className="video__wrapper--thumnbnail">
+            <div className="video__wrapper--thumnbnail">
                 <img className='video__thumbnail'src={thumbnail} alt="videos"/>
             </div>
             <div className='video__wrapper--text'>

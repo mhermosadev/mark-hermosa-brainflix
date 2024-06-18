@@ -1,0 +1,51 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/display';
+@import '../../styles/partials/fontfamily';
+@import '../../styles/partials/globals';
+@import '../../styles/partials/mediaQ';
+@import '../../styles/partials/padding';
+
+//FORM//
+
+.form {
+    padding: 0rem 1rem;
+    @include tablet {
+        padding: 0rem 2.25rem;
+    }
+    @include desktop {
+        padding: 0rem;
+    }
+}
+
+.form__wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 0rem 0rem 1rem 0rem;
+    border-bottom: 0.0625rem solid seccolor(bf-mercury);
+    @include desktop {
+        padding: 0rem 1.5rem 1.5rem 1rem;
+    }
+}
+
+.form__wrapper--tablet {
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+    }
+    @include desktop {
+        margin: 0rem;
+    }
+}
+
+form {
+    @include flex-col;
+    width: 100%;
+}
+
+
+.form__label {
+    @include mob-font-btn;
+    font-weight: weight(lrg);
+    color: primcolor(bf-silver);
+    padding-bottom: 0.25rem;
+}

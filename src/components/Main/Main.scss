@@ -1,0 +1,50 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/display';
+@import '../../styles/partials/fontfamily';
+@import '../../styles/partials/globals';
+@import '../../styles/partials/mediaQ';
+@import '../../styles/partials/padding';
+
+//MAIN//
+
+.main__wrapper--video {
+    display: flex;
+    justify-content: center;
+    background-color: seccolor(bf-darkblack);
+    @include tablet { 
+        padding: $tabLR;
+    }
+    @include desktop {
+        padding: 0rem 12rem 0rem 12rem ;
+    }
+}
+
+.main__video {
+    width: 100%;
+    height: 100%;
+}
+
+//DESKTOP VIEW//
+
+.main__wrapper--desktop {
+    @include desktop {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.main__wrapper--left {
+    @include desktop {
+        width: 75%;
+        border-right: 0.0625rem solid seccolor(bf-mercury);
+        padding-left: 7rem;
+    }
+}
+
+.main__wrapper--right {
+    @include desktop {
+        padding-right: 7rem;
+    }
+}
+
+

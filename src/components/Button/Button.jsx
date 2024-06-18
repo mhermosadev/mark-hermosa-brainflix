@@ -1,11 +1,11 @@
+import './Button.scss';
 
-const Button = ({classname, text}) => {
+const Button = ({classname, text, click}) => {
    
 
     return (
-       <button className={`cta_button ${classname}`}>{text}</button>
+       <button type="button" onClick={click} className={`cta_button ${classname}`}>{text}</button>
     )
-       
    }
    
    export default Button;

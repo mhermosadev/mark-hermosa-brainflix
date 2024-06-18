@@ -1,0 +1,126 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/display';
+@import '../../styles/partials/fontfamily';
+@import '../../styles/partials/globals';
+@import '../../styles/partials/mediaQ';
+@import '../../styles/partials/padding';
+
+.hero {
+    padding: 1.5rem 1rem 0rem 1rem;
+    width: 100%;
+    @include tablet {
+        padding: 2.25rem 2.25rem 0rem 2.25rem; 
+    }
+    @include desktop {
+        padding: 1.5rem 0rem 0rem 0rem; 
+    }
+}   
+
+.hero__title {
+    margin: 0rem 0rem 1rem 0rem;
+    @include mob-font-lrg;
+    font-weight: weight(lrg);
+    @include tablet {
+        @include tab-desk-font-lrg;
+        margin: 0rem 0rem 1.5rem 0rem;
+    }
+}
+
+.hero__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border-bottom: 0.0625rem solid seccolor(bf-mercury);
+
+    &--text {
+        width: 100%;
+        @include flex-col;
+        justify-content: space-between;
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+        }
+    }
+    &--icon {
+        display: flex;
+        align-items: end;
+        justify-content: end;
+        width: fit-content;
+        @include tablet {
+            margin-left: 1rem;
+        }
+    } 
+
+    &--tablet {
+        @include tablet {
+            border-bottom: 0.0625rem solid seccolor(bf-mercury);
+            margin-bottom: 1.5rem;
+        }
+        @include desktop {
+            padding: 0rem 1.5rem 0rem 0rem;
+        }
+    }
+
+    @include tablet {
+        border-bottom: none;
+        margin: 0rem;
+    }
+}
+
+.hero__wrapper--text-selfend {
+    display: flex;
+    justify-content: end;
+}
+
+.hero__img {
+    &--icon-likes {
+        width:  6.7vw;
+        height: 100%;
+        margin: 0rem 0.25rem 1.06rem 0rem;
+        background-image: url(../../assets/icons/likes.svg);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        @include tablet {
+            width:  3.5vw;
+            margin: 0rem 0.25rem 1.15rem 0rem;
+        }
+        @include desktop {
+            width:  2.25vw;     
+        }
+    }
+    &--icon-views {
+        @extend .hero__img--icon-likes;
+        background-image: url(../../assets/icons/views.svg);
+    }
+}
+
+.hero__text {
+    @include mob-font-sml;
+    margin: 0rem 0rem 1rem 0rem;
+    color: primcolor(bf-silver);
+    @include tablet {
+        @include tab-desk-font-sml;
+        margin: 0rem 0rem 1rem 0rem;
+
+    }
+    &--blacktext-demi {
+        font-weight: weight(med);
+        color: primcolor(bf-black);
+        @include tablet {
+            margin: 0rem 1.5rem 1rem 0rem;
+        }
+       
+    }
+    &--blacktext {
+        color: primcolor(bf-black);
+        margin: 1rem 0rem 1rem 0rem;
+        @include tablet {
+            margin: 1.5rem 0rem 1.5rem 0rem;
+        }
+        @include desktop {
+            margin: 1.5rem 1.5rem 1.5rem 0rem;
+        }
+    }
+}

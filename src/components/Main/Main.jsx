@@ -1,32 +1,70 @@
+import './Main.scss';
 import FeaturedVideo from "../FeaturedVideo/FeaturedVideo";
 import FeaturedVideoInfo from "../FeaturedVideo/FeaturedVideoInfo"
 import Form from "../Form/Form";
 import Comments from '../Comments/CommentsList';
 import VideosList from "../Videos/VideosList";
-import videoArr from '../../data/video-details.json';
+import axios from 'axios';  
 import { useState } from "react";
-import commentArr from '../../data/video-details.json';
+import { useEffect } from "react";  
+import { Navigate } from "react-router-dom";
 
-const Main = () => {
+const Main = ({id}) => {
 
-    const [featured, setFeatured] = useState(videoArr[0].image)
-    const [title, setTitle] = useState(videoArr[0].title)
-    const [channel, setChannel] = useState(videoArr[0].channel)
-    const [timestamp, setTimestamp] = useState(new Date(videoArr[0].timestamp).toLocaleDateString())
-    const [description, setDescription] = useState(videoArr[0].description)
-    const [likes, setLikes] = useState(videoArr[0].likes)
-    const [views, setViews] = useState(videoArr[0].views)
-    const [counter, setCounter] = useState(videoArr[0].comments.length)
-    const [comment, setComment] = useState(videoArr[0].comments)
+    const [featured, setFeatured] = useState();
+    const [title, setTitle] = useState();
+    const [channel, setChannel] = useState();
+    const [timestamp, setTimestamp] = useState();
+    const [description, setDescription] = useState();
+    const [likes, setLikes] = useState();
+    const [views, setViews] = useState();
+    const [counter, setCounter] = useState();
+    const [comment, setComment] = useState([]);
+    const [newCommentArr, setnewCommentArr] = useState()
+    const [error, setError] = useState(false)
+    
+
+    useEffect(() => {
+        const apiKEY = '?api_key=8bf1809d-0d2a-456e-aa8f-29069d90323a';
+        const apiURL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
+
+        const FetchDefaultVideo = async () => {
+
+            try {
+                const response = await axios.get(`${apiURL}/videos/${id}${apiKEY}`);
+                const defaultVideo = response.data
+                setError(false)
+                setFeatured(defaultVideo.image)
+                setTitle(defaultVideo.title)
+                setChannel(defaultVideo.channel)
+                setTimestamp(new Date(defaultVideo.timestamp).toLocaleDateString())
+                setDescription(defaultVideo.description)
+                setLikes(defaultVideo.likes)
+                setViews(defaultVideo.views)
+                setCounter(defaultVideo.comments.length)
+                setComment(defaultVideo.comments.sort((a, b) => b.timestamp - a.timestamp))
+            } catch (error) {
+                setError(true)
+            }
+        }
+
+        FetchDefaultVideo()
+
+    }, [id, newCommentArr])
+
+
 
     return (
         <>
+        {error && <Navigate to='ERROR' /> }
         <main>
             <FeaturedVideo 
             poster={featured}/>
 
-            <div className="main__wrapper--desktop">
-                <aside className="main__wrapper--left">
+            <div className="main__wrapper--desktop"> 
+
+                <aside className="main__wrapper--left"> 
+
                     <FeaturedVideoInfo 
                     title={title}
                     channel={channel}
@@ -35,17 +73,24 @@ const Main = () => {
                     likes={likes}
                     views={views}
                     counter={counter} />
-                    <Form />
+
+                    <Form 
+                    id={id}
+                    setnewCommentArr={setnewCommentArr}
+                    />
+
+                    
     
                     {
-                    comment.map((data, index,) => {
+                    
+                    comment.map((comment) => {
                         return (
                             <div className="comments">
                                 <Comments 
-                                key={data.id}
-                                name={data.name}
-                                date={new Date(data.timestamp).toLocaleDateString()}
-                                comment={data.comment}
+                                key={comment.id}
+                                name={comment.name}
+                                date={new Date(comment.timestamp).toLocaleDateString()}
+                                comment={comment.comment}
                                 />
                             </div>
                         )
@@ -55,15 +100,8 @@ const Main = () => {
             
                 <aside className="main__wrapper--right" >
                     <VideosList 
-                    setFeatured={setFeatured}
-                    setTitle={setTitle}
-                    setChannel={setChannel}
-                    setTimestamp={setTimestamp}
-                    setDescription={setDescription}
-                    setLikes={setLikes}
-                    setViews={setViews}
-                    setComment={setComment}
-                    setCounter={setCounter} />  
+                    id={id}
+                    />  
                 </aside>
             </div>
         </main>

@@ -1,16 +1,16 @@
+import './Header.scss';
 import Logo from '../Logo/Logo';
 import Input from '../Input/Input';
 import Avatar from '../Avatar/Avatar';
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
 
-
-const Header = () => {
+const   Header = ({homePageLink, uploadPageLink}) => {
 
     return (
         <>
         <header>
-            <Link className='header__link' to='/'>
+            <Link className='header__link' to={homePageLink}>
                 <Logo />
             </Link>
             <div className='header__wrapper--tablet'>
@@ -21,7 +21,7 @@ const Header = () => {
                     <Avatar
                     classname='header__avatar header__avatar--mobile'/>
                 </div>
-                <Link className='header__link' to='uploadpage'>
+                <Link className='header__link' to={uploadPageLink}>
                     <Button 
                     classname='header__button'
                     text='UPLOAD'/>

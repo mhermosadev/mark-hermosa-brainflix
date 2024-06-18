@@ -1,0 +1,94 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/display';
+@import '../../styles/partials/fontfamily';
+@import '../../styles/partials/globals';
+@import '../../styles/partials/mediaQ';
+@import '../../styles/partials/padding';
+
+//GLOBAL//
+
+.cta_button {
+    @include mob-font-btn;
+    background-position: 5% 50%;
+    background-size: 1.5rem;
+    background-repeat: no-repeat;
+    font-weight: weight(lrg);
+    height: 2.5rem;
+    width: 100%;
+    min-height: 40px;
+    border-radius: 0.25rem;
+    background-color: primcolor(bf-blue);
+    padding: 0rem 2rem 0rem 2rem;
+    border: none; 
+    color: primcolor(bf-white);
+    &:hover {
+        background-color: seccolor(bf-darkblue)
+    }
+    @include tablet {
+        @include tab-desk-font-btn;
+    }
+}
+
+//HEADER//
+
+.header__button {
+    background-image: url(../../assets/icons/upload.svg);
+    width: 100%;
+    @include tablet {
+        width: 100%;
+        margin-right: 1.5rem
+    }
+    @include desktop {
+        width: 88.9%;
+        margin-right: 1.45rem;
+    }
+}
+
+//MAIN PAGE FORM BUTTON//
+
+.form__button {
+    background-image: url(../../assets/icons/add_comment.svg);
+    @include tablet {
+        width: 35%;
+        margin-left: 1.5rem;
+    }
+}
+
+//UPLOAD PAGE FORM BUTTON//
+
+.upload-form__wrapper--button {
+    @include flex-col;
+    align-items: center;
+    width: 100%;
+    @include tablet {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: end;
+        align-items: center;
+        width: 100%;
+        padding: 1.5rem 0rem;
+    }
+    @include desktop {
+        padding-top: 0rem;
+    }
+}
+
+.upload-form__button {
+    background-image: url(../../../src/assets/icons/publish.svg);
+    margin-bottom: 1rem;
+    @include tablet {
+        width: 20%;
+        margin: 0rem 0rem 0rem 5rem;
+    }
+    @include desktop {
+        width: 23%;
+    }
+}
+
+.upload-form__button--cancel {
+    background-color: primcolor(bf-white);
+    color: primcolor(bf-blue);
+    width: fit-content;
+    padding: 0rem;
+    margin: 0rem;
+}
