@@ -38,7 +38,7 @@ const VideosList = ({id}) => {
 
                 return (
 
-                    <Link to={`/videoplayer/${data.id}`} >
+                    <Link className="videos__link" to={`/videoplayer/${data.id}`} >
                         <Videos
                         key={data.id} 
                         thumbnail={data.image}

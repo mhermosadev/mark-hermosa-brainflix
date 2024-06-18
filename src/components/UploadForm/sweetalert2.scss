@@ -1,0 +1,18 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/display';
+@import '../../styles/partials/fontfamily';
+@import '../../styles/partials/globals';
+@import '../../styles/partials/mediaQ';
+@import '../../styles/partials/padding';
+
+.swal2-confirm {
+    font-weight: weight(lrg);
+    font-family: 'avenir';
+    @include mob-font-btn
+}
+
+.swal2-deny {
+    font-weight: weight(lrg);
+    font-family: 'avenir';
+    @include mob-font-btn;
+}

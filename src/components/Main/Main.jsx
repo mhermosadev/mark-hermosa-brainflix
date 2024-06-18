@@ -79,13 +79,10 @@ const Main = ({id}) => {
                     setnewCommentArr={setnewCommentArr}
                     />
 
-                    
-    
-                    {
-                    
-                    comment.map((comment) => {
+                    <div className='comments'>
+                        {comment.map((comment) => {
                         return (
-                            <div className="comments">
+                            <div className="comment">
                                 <Comments 
                                 key={comment.id}
                                 name={comment.name}
@@ -94,8 +91,8 @@ const Main = ({id}) => {
                                 />
                             </div>
                         )
-                    })
-                    }
+                    })}
+                    </div>
                 </aside>
             
                 <aside className="main__wrapper--right" >
