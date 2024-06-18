@@ -1,4 +1,3 @@
-
 import './Avatar.scss';
 
 const Avatar = ({classname}) => {

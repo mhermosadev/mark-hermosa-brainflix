@@ -9,21 +9,26 @@ import './Form.scss';
 const Form = ({id, setnewCommentArr}) => {
 
     const [focus, setFocus] = useState('');
-    const [newComment, setNewcomment] = useState('')
+    const [newComment, setNewcomment] = useState('');
+    const [error, setError] = useState('');
 
+    const onInvalid = () => {
+        setError('form__input--error')
+        setFocus('')
+     }
+  
     const onFocus = () => {
         setFocus('form__input--active')
     }
  
     const onBlur = () => {
         setFocus('')
+        setError('')
     }
 
     const inputChangeValue = (event) => {
         setNewcomment(event.target.value)
     }
-
-    console.log(newComment)
 
     const submitComment = async (e) => {
         e.preventDefault()
@@ -31,6 +36,7 @@ const Form = ({id, setnewCommentArr}) => {
         const apiKEY = '?api_key=8bf1809d-0d2a-456e-aa8f-29069d90323a';
         const apiURL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
 
+    
         const newPost = {
             name: 'Mark Hermosa',
             comment: newComment
@@ -42,14 +48,10 @@ const Form = ({id, setnewCommentArr}) => {
 
             setnewCommentArr(postResponse.data)
             setNewcomment('')
-            console.log('hello')
 
         } catch (error) {
     
         }
-
-        
-       
     }
 
     return (
@@ -58,10 +60,10 @@ const Form = ({id, setnewCommentArr}) => {
             <div className="form__wrapper">
                 <Avatar 
                 classname='form__avatar'/>
-                <form>
+                <form onSubmit={submitComment}>
                     <label htmlFor="userInput" className="form__label">JOIN THE CONVERSATION</label>
                     <div className="form__wrapper--tablet">
-                        <textarea value={newComment} onChange={inputChangeValue} onFocus={onFocus} onBlur={onBlur} className={`form__input form__input--mobile ${focus}`} name="userInput" placeholder="Add a new comment" required></textarea>
+                        <textarea required onInvalid={onInvalid} value={newComment} onChange={inputChangeValue} onFocus={onFocus} onBlur={onBlur} className={`form__input form__input--mobile ${focus} ${error}`} name="userInput" placeholder="Add a new comment"></textarea>
                         <Input 
                         placeholder='Add a new comment'
                         classname='form__input form__input--tablet'
@@ -73,7 +75,7 @@ const Form = ({id, setnewCommentArr}) => {
                         <Button
                         text='COMMENT'  
                         classname='form__button' 
-                        click={submitComment}
+                        type='submit'
                         />
                     </div>  
                 </form> 

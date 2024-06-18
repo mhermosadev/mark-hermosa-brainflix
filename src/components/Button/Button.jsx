@@ -1,10 +1,10 @@
 import './Button.scss';
 
-const Button = ({classname, text, click}) => {
+const Button = ({classname, text, click, type}) => {
    
 
     return (
-       <button type="button" onClick={click} className={`cta_button ${classname}`}>{text}</button>
+       <button type={type} onClick={click} className={`cta_button ${classname}`}>{text}</button>
     )
    }
    

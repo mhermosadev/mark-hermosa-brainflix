@@ -42,10 +42,14 @@ form {
     width: 100%;
 }
 
+//UPLOAD FORM// 
 
-.form__label {
-    @include mob-font-btn;
-    font-weight: weight(lrg);
-    color: primcolor(bf-silver);
-    padding-bottom: 0.25rem;
+.upload-form__wrapper {
+    @include flex-col;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0rem;  
+    @include tablet {
+        padding: 0rem;
+    }
 }

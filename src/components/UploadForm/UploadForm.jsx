@@ -5,6 +5,12 @@ import { useState } from "react";
 const UploadForm = () => {
 
     const [focus, setFocus] = useState('');
+    const [error, setError] = useState('');
+
+    const onInvalid = () => {
+        setError('form__input--error')
+        setFocus('')
+     }
 
     const onFocus = () => {
        setFocus('form__input--active')
@@ -12,6 +18,7 @@ const UploadForm = () => {
  
     const onBlur = () => {
        setFocus('')
+       setError('')
     }
 
     
@@ -27,7 +34,7 @@ const UploadForm = () => {
                         name='video_title'
                         /> 
                     <label for="video_description" className="upload-form__label">ADD A VIDEO DESCRIPTION</label>
-                    <textarea onFocus={onFocus} onBlur={onBlur} className={`upload-form__input upload-form__input--description site_input ${focus}`} name="video_description" placeholder="Add a description to your video" required></textarea>
+                    <textarea onInvalid={onInvalid} onFocus={onFocus} onBlur={onBlur} className={`upload-form__input upload-form__input--description site_input ${focus} ${error}`} name="video_description" placeholder="Add a description to your video" required></textarea>
                 </div>
                 <div className="upload-form__wrapper--button">
                     <Button
