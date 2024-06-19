@@ -3,12 +3,20 @@ import Logo from '../Logo/Logo';
 import Input from '../Input/Input';
 import Avatar from '../Avatar/Avatar';
 import Button from '../Button/Button';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { useState } from 'react';
 
-const   Header = ({homePageLink, uploadPageLink}) => {
+const Header = ({homePageLink, uploadPageLink}) => {
+
+const [link, setLink] = useState(false)
+
+const onClick = () => {
+    setLink(true)
+}
 
     return (
         <>
+        {link && <Navigate to='/uploadpage' />}
         <header>
             <Link className='header__link' to={homePageLink}>
                 <Logo />
@@ -21,11 +29,11 @@ const   Header = ({homePageLink, uploadPageLink}) => {
                     <Avatar
                     classname='header__avatar header__avatar--mobile'/>
                 </div>
-                <Link className='header__link' to={uploadPageLink}>
+
                     <Button 
                     classname='header__button'
-                    text='UPLOAD'/>
-                </Link>
+                    text='UPLOAD'
+                    click={onClick}/>
                
                 <Avatar
                     classname='header__avatar header__avatar--tablet '/>

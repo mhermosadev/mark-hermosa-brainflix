@@ -42,6 +42,12 @@
     }
 }
 
+.comment__wrapper--comment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .comment__text {
     margin: 0rem 0rem 1rem 0rem;
     color: primcolor(bf-black);
@@ -58,4 +64,19 @@
     @include tablet {
         @include tab-desk-font-sml;
     }
+}
+
+.comment__icon--delete {
+    background-image: url(../../assets/icons/icon-delete.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 70%;
+    width: 5rem;
+    height: fit-content;
+    margin: 0rem 0rem 1rem 0rem;
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 30px;
+    align-self: end;
+    
 }

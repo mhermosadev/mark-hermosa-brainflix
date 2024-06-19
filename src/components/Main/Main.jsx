@@ -2,7 +2,7 @@ import './Main.scss';
 import FeaturedVideo from "../FeaturedVideo/FeaturedVideo";
 import FeaturedVideoInfo from "../FeaturedVideo/FeaturedVideoInfo"
 import Form from "../Form/Form";
-import Comments from '../Comments/CommentsList';
+import CommentsList from '../Comments/CommentsList';
 import VideosList from "../Videos/VideosList";
 import axios from 'axios';  
 import { useState } from "react";
@@ -83,7 +83,7 @@ const Main = ({id}) => {
                         {comment.map((comment) => {
                         return (
                             <div className="comment">
-                                <Comments 
+                                <CommentsList 
                                 key={comment.id}
                                 name={comment.name}
                                 date={new Date(comment.timestamp).toLocaleDateString()}

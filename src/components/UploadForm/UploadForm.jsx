@@ -9,7 +9,7 @@ const UploadForm = () => {
 
     const [focus, setFocus] = useState(''); 
     const [error, setError] = useState('');
-    const [upload, setUpload] = useState(false)
+    const [redirect, setRedirect] = useState(false)
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
 
@@ -23,8 +23,10 @@ const UploadForm = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
+
+        // NOTIFICATION THAT VIDEO IS UPLOADED SUCCESFULLY //
         Swal.fire({
-            title: "VIDEO UPLOADED SUCCESFULLY!",
+            title: "UPLOADED SUCCESFULLY!",
             icon: 'success',
             iconColor: '#0095FF',
             showDenyButton: true,
@@ -36,9 +38,9 @@ const UploadForm = () => {
 
           }).then((result) => {
             if (result.isConfirmed) {
-              setUpload(true)
+                setRedirect(true)
             } else if (result.isDenied) {
-              setUpload(false);
+                setRedirect(false);
             }
           });
 
@@ -62,7 +64,7 @@ const UploadForm = () => {
 
     return (
         <>
-        {upload && <Navigate to='/' /> }
+        {redirect && <Navigate to='/' /> }
         <div className="upload-form__wrapper">
             <form onSubmit={onSubmit} className="upload-form">
                 <div className="upload-form__wrapper--input">

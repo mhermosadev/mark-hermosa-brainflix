@@ -22,14 +22,15 @@
     border: none; 
     color: primcolor(bf-white);
     &:hover {
-        background-color: seccolor(bf-darkblue)
+        background-color: seccolor(bf-darkblue);
+        cursor: pointer;
     }
     @include tablet {
         @include tab-desk-font-btn;
     }
 }
 
-//HEADER//
+//HEADER BUTTON//
 
 .header__button {
     background-image: url(../../assets/icons/upload.svg);
@@ -39,12 +40,12 @@
         margin-right: 1.5rem
     }
     @include desktop {
-        width: 88.9%;
-        margin-right: 1.45rem;
+        width: 24%;
+        margin-right: 2.5rem;
     }
 }
 
-//MAIN PAGE FORM BUTTON//
+//COMMENTS BUTTON//
 
 .form__button {
     background-image: url(../../assets/icons/add_comment.svg);
@@ -54,7 +55,7 @@
     }
 }
 
-//UPLOAD PAGE FORM BUTTON//
+//UPLOAD BUTTON//
 
 .upload-form__wrapper--button {
     @include flex-col;
@@ -91,4 +92,7 @@
     width: fit-content;
     padding: 0rem;
     margin: 0rem;
+    &:hover {
+        background-color: white;
+    }
 }
