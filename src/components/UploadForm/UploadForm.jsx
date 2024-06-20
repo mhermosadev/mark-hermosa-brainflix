@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import './sweetalert2.scss';
+import './UploadForm.scss';
 
 const UploadForm = () => {
 

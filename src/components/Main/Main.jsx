@@ -8,8 +8,13 @@ import axios from 'axios';
 import { useState } from "react";
 import { useEffect } from "react";  
 import { Navigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import '../UploadForm/UploadForm.scss';
 
 const Main = ({id}) => {
+
+    const apiKEY = '?api_key=8bf1809d-0d2a-456e-aa8f-29069d90323a';
+    const apiURL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
 
     const [featured, setFeatured] = useState();
     const [title, setTitle] = useState();
@@ -21,12 +26,11 @@ const Main = ({id}) => {
     const [counter, setCounter] = useState();
     const [comment, setComment] = useState([]);
     const [newCommentArr, setnewCommentArr] = useState()
+    const [deleteComment, setDeleteComment] = useState()
     const [error, setError] = useState(false)
-    
 
     useEffect(() => {
-        const apiKEY = '?api_key=8bf1809d-0d2a-456e-aa8f-29069d90323a';
-        const apiURL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
+        
 
         const FetchDefaultVideo = async () => {
 
@@ -50,9 +54,7 @@ const Main = ({id}) => {
 
         FetchDefaultVideo()
 
-    }, [id, newCommentArr])
-
-
+    }, [id, newCommentArr, deleteComment])
 
     return (
         <>
@@ -80,7 +82,50 @@ const Main = ({id}) => {
                     />
 
                     <div className='comments'>
+
                         {comment.map((comment) => {
+
+                            const deleteComments = () => {
+                                
+                                Swal.fire({
+                                    title: "Continue to delete this comment?",
+                                    icon: 'question',
+                                    iconColor: '#D22D2D',
+                                    showDenyButton: true,
+                                    confirmButtonText: "YES",
+                                    confirmButtonColor: "#0095FF",
+                                    denyButtonText: "CANCEL",
+                                    denyButtonColor: "#0095FF",
+                                    allowOutsideClick: false,
+                        
+                                  }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        
+                                        const response = async () => {
+
+                                            try {
+                                                const response = await axios.delete(`${apiURL}/videos/${id}/comments/${comment.id}${apiKEY}`);
+                                                setDeleteComment(response)
+                    
+                                            } catch (error) {
+                                                console.log(error)
+                                            }
+                                        }
+
+                                        response();
+
+                                        Swal.fire({
+                                            title: "Deleted!",
+                                            icon: "success",
+                                            iconColor: '#0095FF',
+                                            confirmButtonColor: "#0095FF"
+                                          });
+                                        
+                                    } else if (result.isDenied) {
+                                        return 
+                                    }
+                                  });
+                            }
                         return (
                             <div className="comment">
                                 <CommentsList 
@@ -88,6 +133,7 @@ const Main = ({id}) => {
                                 name={comment.name}
                                 date={new Date(comment.timestamp).toLocaleDateString()}
                                 comment={comment.comment}
+                                click={deleteComments}
                                 />
                             </div>
                         )

@@ -8,11 +8,16 @@
 .swal2-confirm {
     font-weight: weight(lrg);
     font-family: 'avenir';
-    @include mob-font-btn
+    @include mob-font-btn;
+    color: red;
 }
 
 .swal2-deny {
     font-weight: weight(lrg);
     font-family: 'avenir';
     @include mob-font-btn;
+}
+
+.swal2-popup {
+    width: 600px;
 }
