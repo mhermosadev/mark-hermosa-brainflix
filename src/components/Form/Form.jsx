@@ -5,7 +5,6 @@ import { useState } from "react";
 import axios from 'axios';  
 import './Form.scss';
 
-
 const Form = ({id, setnewCommentArr}) => {
 
     const [focus, setFocus] = useState('');
@@ -44,8 +43,7 @@ const Form = ({id, setnewCommentArr}) => {
 
         try {
             const postResponse = await axios.post(`${apiURL}/videos/${id}/comments${apiKEY}`, newPost);
-            console.log(postResponse.data)
-
+        
             setnewCommentArr(postResponse.data)
             setNewcomment('')
 

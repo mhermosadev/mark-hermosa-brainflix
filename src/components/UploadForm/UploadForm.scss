@@ -9,7 +9,6 @@
     font-weight: weight(lrg);
     font-family: 'avenir';
     @include mob-font-btn;
-    color: red;
 }
 
 .swal2-deny {
@@ -20,4 +19,4 @@
 
 .swal2-popup {
     width: 600px;
-}
+}   

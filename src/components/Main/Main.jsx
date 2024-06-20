@@ -58,7 +58,7 @@ const Main = ({id}) => {
 
     return (
         <>
-        {error && <Navigate to='ERROR' /> }
+        {error && <Navigate to='/404' /> }
         <main>
             <FeaturedVideo 
             poster={featured}/>
@@ -85,10 +85,10 @@ const Main = ({id}) => {
 
                         {comment.map((comment) => {
 
-                            const deleteComments = () => {
-                                
+                            const onClick = () => {
+                                //ALERT BEFORE USER CAN DELETE COMMENTS//
                                 Swal.fire({
-                                    title: "Continue to delete this comment?",
+                                    title: "Continue deleting this comment?",
                                     icon: 'question',
                                     iconColor: '#D22D2D',
                                     showDenyButton: true,
@@ -98,10 +98,10 @@ const Main = ({id}) => {
                                     denyButtonColor: "#0095FF",
                                     allowOutsideClick: false,
                         
-                                  }).then((result) => {
+                                }).then((result) => {
                                     if (result.isConfirmed) {
                                         
-                                        const response = async () => {
+                                        const deleteComment = async () => {
 
                                             try {
                                                 const response = await axios.delete(`${apiURL}/videos/${id}/comments/${comment.id}${apiKEY}`);
@@ -112,7 +112,7 @@ const Main = ({id}) => {
                                             }
                                         }
 
-                                        response();
+                                        deleteComment();
 
                                         Swal.fire({
                                             title: "Deleted!",
@@ -133,7 +133,7 @@ const Main = ({id}) => {
                                 name={comment.name}
                                 date={new Date(comment.timestamp).toLocaleDateString()}
                                 comment={comment.comment}
-                                click={deleteComments}
+                                click={onClick}
                                 />
                             </div>
                         )
@@ -153,4 +153,4 @@ const Main = ({id}) => {
        
    }
    
-   export default Main;
+export default Main;
