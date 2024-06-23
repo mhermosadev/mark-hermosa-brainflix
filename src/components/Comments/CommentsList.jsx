@@ -1,6 +1,9 @@
+import './CommentsList.scss';
 import Avatar from "../Avatar/Avatar"
 
-const Comments = ({name, date, comment}) => {
+
+const CommentsList = ({name, date, comment, click}) => {
+
     return (
         <>
         <div className="comment__wrapper">
@@ -13,11 +16,13 @@ const Comments = ({name, date, comment}) => {
                 </div>
                 <div className='comment__wrapper--comment'>
                     <p className="comment__text comment__text--comment">{comment}</p>
+                    <div onClick={click} className="comment__icon--delete"></div>
                 </div>
             </div>
         </div>
         </>
     )
+    
 }
 
-export default Comments;
+export default CommentsList;

@@ -1,14 +1,11 @@
 import './App.scss';
-import Header from './components/Header/Header'
-import Main from './components/Main/Main'
+import Router from './components/Router/Router';
 
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Main />
-    
+      < Router />
     </div>
   );
 }

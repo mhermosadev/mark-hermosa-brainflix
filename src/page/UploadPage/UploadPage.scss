@@ -1,0 +1,78 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/display';
+@import '../../styles/partials/fontfamily';
+@import '../../styles/partials/globals';
+@import '../../styles/partials/mediaQ';
+@import '../../styles/partials/padding';
+
+.upload {
+    padding: 1rem;
+    border-top: 1px solid seccolor(bf-mercury);
+    @include tablet {
+        padding: 0rem 2.25rem
+    }
+    @include desktop {
+        padding: 0rem 7rem;
+    }
+}
+
+.upload__wrapper--desktop {
+    @include desktop {
+        width: 100%;
+        display: flex;
+        align-items: baseline;
+    }
+}
+
+.upload__wrapper--title {
+    @include tablet {
+        border-bottom: 1px solid seccolor(bf-mercury);
+        padding: 1.5rem 0rem;
+        margin-bottom: 1.5rem;
+    }
+}
+    
+.upload__title {
+    @include mob-font-lrg;
+    font-weight: weight(lrg);
+    color: primcolor(bf-black);
+    margin: .5rem 0rem 1rem 0rem;
+    @include tablet {
+        @include tab-desk-font-lrg;
+        margin: 0rem
+    }
+}
+
+.upload__wrapper--img {
+    @include desktop {
+        width: 100%;
+        max-width: 366.5px;
+        padding-right: 1.5rem;
+        border-bottom: 1px solid seccolor(bf-mercury);
+    }
+}
+
+.upload__text {
+    @include mob-font-sml;
+    font-weight: weight(med);
+    color: primcolor(bf-silver);
+    margin: 0rem 0rem 4px 0rem;
+    @include tablet {
+        @include tab-desk-font-sml;
+    }
+    @include tablet {
+        @include tab-desk-font-sml;
+        margin: 0rem;
+    }
+}
+
+.upload__image {
+    width: 100%;
+    @include tablet {
+        width: 50%;
+        margin-bottom: 1.5rem;
+    }
+    @include desktop {
+        width: 100%;
+    }
+}

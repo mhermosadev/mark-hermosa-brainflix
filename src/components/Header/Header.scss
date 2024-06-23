@@ -1,0 +1,55 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/display';
+@import '../../styles/partials/fontfamily';
+@import '../../styles/partials/globals';
+@import '../../styles/partials/mediaQ';
+@import '../../styles/partials/padding';
+
+//HEADER//
+
+header {
+    @include flex-col;
+    width: 100%;
+    align-items: center;
+    padding: 1rem;
+    @include tablet {
+        padding: 1rem 2.25rem 1rem 2.25rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    @include desktop {
+        padding: 1.5rem 7rem 1.5rem 7rem;
+    }
+}
+
+.header__link  {
+    margin-right: 1.5rem;
+}
+
+.header__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    @include tablet {
+        margin: 0rem;
+        justify-content: end;
+    }
+}
+
+.header__wrapper--tablet {
+    width: 100%;
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+    @include desktop {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+    }
+}

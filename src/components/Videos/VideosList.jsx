@@ -1,36 +1,51 @@
 import Videos from "./Videos";
-import videosArr from '../../data/video-details.json';
+import axios from 'axios';
+import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
-const VideosList = ({setFeatured, setTitle, setChannel, setTimestamp, setDescription, setComment, setLikes, setViews, setCounter}) => {
+const VideosList = ({id}) => {
 
-    const [videos, setVideos] = useState(videosArr.slice(1));
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        const apiKEY = '/?api_key=8bf1809d-0d2a-456e-aa8f-29069d90323a';
+        const apiURL = 'https://unit-3-project-api-0a5620414506.herokuapp.com/';
+        
+        const fetchVideoList = async () => {
+            try {
+                const response = await axios.get(`${apiURL}videos${apiKEY}`);
+                const videoList = response.data;
+                const filteredList = videoList.filter((video) => {
+                    return video.id !== id;
+                });
+                
+                setVideos(filteredList);
+               
+            } catch (error){    
+                console.log(error)
+            }
+        }
+
+        fetchVideoList(); 
+        
+    }, [id])
 
     return (
         <section className="videos">
             <h2 className="videos__title">NEXT VIDEOS</h2>
-            {videos.map((data, index) => {
-
-                const onClick = () => {
-                    setFeatured(data.image)
-                    setTitle(data.title)
-                    setChannel(data.channel)
-                    setTimestamp(data.timestamp)
-                    setDescription(data.description)
-                    setLikes(data.likes)
-                    setViews(data.likes)
-                    setComment(data.comments)
-                    setCounter(data.comments.length)
-                }
+            {videos.map((data) => {
 
                 return (
-                    <Videos 
-                    key={data.id}
-                    thumbnail={data.image}
-                    name={data.channel}
-                    title={data.title}
-                    onclick={onClick}
-                    />
+
+                    <Link className="videos__link" to={`/videoplayer/${data.id}`} >
+                        <Videos
+                        key={data.id} 
+                        thumbnail={data.image}
+                        name={data.channel}
+                        title={data.title}
+                        />
+                    </Link>
                 )
             })
             }
