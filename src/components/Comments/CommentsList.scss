@@ -1,0 +1,85 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/display';
+@import '../../styles/partials/fontfamily';
+@import '../../styles/partials/globals';
+@import '../../styles/partials/mediaQ';
+@import '../../styles/partials/padding';
+
+//COMMENT//
+
+.comment {
+    padding: 1rem 1rem 0rem 1rem;
+    @include tablet {
+        padding: 1.5rem 2.25rem 0rem 2.25rem;
+    }
+    @include desktop {
+        padding: 1.5rem 0rem 0rem 0rem;
+    }
+}
+
+.comment__wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 0.0625rem solid seccolor(bf-mercury);
+
+    &--text {
+        width: 100%;
+    }
+
+    @include desktop {
+        padding: 0rem 1.5rem 0rem 1rem;
+    }
+}
+
+.comment__wrapper--name-date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include tablet {
+        width: 100%;
+        margin: 0rem;
+    }
+}
+
+.comment__wrapper--comment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.comment__text {
+    margin: 0rem 0rem 1rem 0rem;
+    color: primcolor(bf-black);
+    @include mob-font-sml;
+
+    &--name {
+        font-weight: weight(med);
+    }
+
+    &--date {
+        color: primcolor(bf-silver);
+    }
+
+    @include tablet {
+        @include tab-desk-font-sml;
+    }
+}
+
+.comment__icon--delete {
+    background-image: url(../../assets/icons/icon-delete.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 70%;
+    filter: drop-shadow(100%);
+    width: 5rem;
+    height: fit-content;
+    margin: 0rem 0rem 1rem 0rem;
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 30px;
+    align-self: end;
+    &:hover {
+        cursor: pointer;
+    }
+}

@@ -1,3 +1,5 @@
+import './FeaturedVideo.scss';
+
 const FeaturedVideo = ({poster}) => {
 
     return (
@@ -7,6 +9,7 @@ const FeaturedVideo = ({poster}) => {
         </div>
         </>
     )
-   }
+    
+}
    
    export default FeaturedVideo;

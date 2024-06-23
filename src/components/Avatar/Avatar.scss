@@ -1,0 +1,67 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/display';
+@import '../../styles/partials/fontfamily';
+@import '../../styles/partials/globals';
+@import '../../styles/partials/mediaQ';
+@import '../../styles/partials/padding';
+
+//GLOBAL STYLING// 
+
+.user__avatar {
+    background-image: url(../../assets/images/Mohan-muruge.jpg);
+    background-size: cover;
+    width: 2.25rem;
+    height: 2.25rem;
+    min-height: 36px;
+    min-width: 36px;
+    max-height: 36px;
+    max-width: 36px;
+    border-style: hidden;
+    background-color: seccolor(bf-mercury);
+    border-radius: 50%;
+    &--graybg {
+        background-image: none;
+    }
+    @include tablet {
+        min-height: 40px;
+        min-width: 40px;
+        max-height: 40px;
+        max-width: 40px;
+    }
+}
+
+//HEADER AVATAR//
+
+.header__avatar--mobile {
+    display: flex;
+    @include tablet {
+        display: none;
+    }
+}
+
+.header__avatar--tablet {
+    display: none;
+    margin-left: 1rem;
+    @include tablet {
+        display: flex;
+        margin-left: 0rem;
+    }
+}
+
+//FORM AVATAR//
+
+.form__avatar {
+    margin: 1.5rem 1rem 0rem 0rem;
+    @include tablet {
+        margin: 1.5rem 1.5rem 0rem 0rem;  
+    }
+}
+
+//COMMENT AVATAR//
+
+.comment__avatar {
+    margin: 0rem 1rem 0rem 0rem;
+    @include tablet {
+        margin: 0rem 1.5rem 0rem 0rem;
+    }
+}

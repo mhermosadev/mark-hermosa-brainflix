@@ -1,0 +1,18 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/display';
+@import '../../styles/partials/fontfamily';
+@import '../../styles/partials/globals';
+@import '../../styles/partials/mediaQ';
+@import '../../styles/partials/padding';
+
+//GLOBAL//
+
+.site__logo {
+    width: 100%;
+    max-width: 120px;
+    max-height: 25px;
+    margin-bottom: 1rem;
+    @include tablet {
+        margin: 0rem 1.5rem 0rem 0rem;
+    }
+}
