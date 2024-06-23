@@ -31,24 +31,18 @@ const Form = ({id, setnewCommentArr}) => {
 
     const submitComment = async (e) => {
         e.preventDefault()
-        
         const apiKEY = '?api_key=8bf1809d-0d2a-456e-aa8f-29069d90323a';
         const apiURL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
-
-    
         const newPost = {
             name: 'Mark Hermosa',
             comment: newComment
             };
-
         try {
             const postResponse = await axios.post(`${apiURL}/videos/${id}/comments${apiKEY}`, newPost);
-        
-            setnewCommentArr(postResponse.data)
-            setNewcomment('')
-
+            setnewCommentArr(postResponse.data);
+            setNewcomment('');
         } catch (error) {
-    
+            console.log(error)
         }
     }
 
@@ -68,7 +62,6 @@ const Form = ({id, setnewCommentArr}) => {
                         name='userInput'
                         onchange={inputChangeValue}
                         value={newComment}
-                        
                         /> 
                         <Button
                         text='COMMENT'  
@@ -79,10 +72,9 @@ const Form = ({id, setnewCommentArr}) => {
                 </form> 
             </div> 
         </div>
-       
         </>
     )
+
    }
    
    export default Form ;
-

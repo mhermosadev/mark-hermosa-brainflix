@@ -13,6 +13,7 @@ const FeaturedVideoInfo = ({title, channel, timestamp, description, likes, views
             counter={counter}
         />
     )
+    
 } 
 
 export default FeaturedVideoInfo

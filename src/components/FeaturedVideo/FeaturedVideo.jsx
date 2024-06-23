@@ -9,6 +9,7 @@ const FeaturedVideo = ({poster}) => {
         </div>
         </>
     )
-   }
+    
+}
    
    export default FeaturedVideo;

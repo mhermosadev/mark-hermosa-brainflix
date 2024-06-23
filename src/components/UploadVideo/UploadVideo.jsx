@@ -11,11 +11,10 @@ const UploadVideo = () => {
             <div className='upload__wrapper--desktop'>
                 <div className='upload__wrapper--img'>
                     <p className='upload__text' >VIDEO THUMBNAIL</p>
-                    <img className='upload__image' src={uploadVideoPreview} alt='photo of person start of marathon' />
+                    <img className='upload__image' src={uploadVideoPreview} alt='person at the start of marathon' />
                 </div>
                 <UploadForm />
             </div>
-            
         </section>
         </>
         

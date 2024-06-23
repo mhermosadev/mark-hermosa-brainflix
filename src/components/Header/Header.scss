@@ -5,6 +5,8 @@
 @import '../../styles/partials/mediaQ';
 @import '../../styles/partials/padding';
 
+//HEADER//
+
 header {
     @include flex-col;
     width: 100%;

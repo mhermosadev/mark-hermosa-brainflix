@@ -5,7 +5,7 @@
 @import '../../styles/partials/mediaQ';
 @import '../../styles/partials/padding';
 
-//GLOBAL// 
+//GLOBAL STYLING// 
 
 .user__avatar {
     background-image: url(../../assets/images/Mohan-muruge.jpg);
@@ -30,7 +30,7 @@
     }
 }
 
-//HEADER//
+//HEADER AVATAR//
 
 .header__avatar--mobile {
     display: flex;
@@ -48,7 +48,7 @@
     }
 }
 
-//FORM//
+//FORM AVATAR//
 
 .form__avatar {
     margin: 1.5rem 1rem 0rem 0rem;
@@ -57,7 +57,7 @@
     }
 }
 
-//COMMENT//
+//COMMENT AVATAR//
 
 .comment__avatar {
     margin: 0rem 1rem 0rem 0rem;

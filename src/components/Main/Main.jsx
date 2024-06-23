@@ -9,7 +9,6 @@ import { useState } from "react";
 import { useEffect } from "react";  
 import { Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import '../UploadForm/UploadForm.scss';
 
 const Main = ({id}) => {
 
@@ -31,7 +30,6 @@ const Main = ({id}) => {
 
     useEffect(() => {
         
-
         const FetchDefaultVideo = async () => {
 
             try {
@@ -49,6 +47,7 @@ const Main = ({id}) => {
                 setComment(defaultVideo.comments.sort((a, b) => b.timestamp - a.timestamp))
             } catch (error) {
                 setError(true)
+                console.log(error)
             }
         }
 
@@ -61,12 +60,10 @@ const Main = ({id}) => {
         {error && <Navigate to='/404' /> }
         <main>
             <FeaturedVideo 
-            poster={featured}/>
-
+            poster={featured}
+            />
             <div className="main__wrapper--desktop"> 
-
                 <aside className="main__wrapper--left"> 
-
                     <FeaturedVideoInfo 
                     title={title}
                     channel={channel}
@@ -74,15 +71,13 @@ const Main = ({id}) => {
                     description={description}
                     likes={likes}
                     views={views}
-                    counter={counter} />
-
+                    counter={counter} 
+                    />
                     <Form 
                     id={id}
                     setnewCommentArr={setnewCommentArr}
                     />
-
                     <div className='comments'>
-
                         {comment.map((comment) => {
 
                             const onClick = () => {
@@ -99,10 +94,10 @@ const Main = ({id}) => {
                                     allowOutsideClick: false,
                         
                                 }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        
-                                        const deleteComment = async () => {
 
+                                    if (result.isConfirmed) {
+
+                                        const deleteComment = async () => {
                                             try {
                                                 const response = await axios.delete(`${apiURL}/videos/${id}/comments/${comment.id}${apiKEY}`);
                                                 setDeleteComment(response)
@@ -122,7 +117,7 @@ const Main = ({id}) => {
                                           });
                                         
                                     } else if (result.isDenied) {
-                                        return 
+                                        return {}
                                     }
                                   });
                             }

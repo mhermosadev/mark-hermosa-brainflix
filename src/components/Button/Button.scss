@@ -5,7 +5,7 @@
 @import '../../styles/partials/mediaQ';
 @import '../../styles/partials/padding';
 
-//GLOBAL//
+//GLOBAL STYLING//
 
 .cta_button {
     @include mob-font-btn;
@@ -45,7 +45,7 @@
     }
 }
 
-//COMMENTS BUTTON//
+//COMMENT BUTTON//
 
 .form__button {
     background-image: url(../../assets/icons/add_comment.svg);

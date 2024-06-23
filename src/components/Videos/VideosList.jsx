@@ -23,7 +23,7 @@ const VideosList = ({id}) => {
                 setVideos(filteredList);
                
             } catch (error){    
-               
+                console.log(error)
             }
         }
 

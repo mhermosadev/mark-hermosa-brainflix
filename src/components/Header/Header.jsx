@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 import { Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 
-const Header = ({homePageLink, uploadPageLink}) => {
+const Header = ({homePageLink}) => {
 
 const [link, setLink] = useState(false)
 
@@ -25,22 +25,25 @@ const onClick = () => {
                 <div className='header__wrapper'>
                     <Input
                     placeholder='Search'
-                    classname='header__input'/>
+                    classname='header__input'
+                    />
                     <Avatar
-                    classname='header__avatar header__avatar--mobile'/>
+                    classname='header__avatar header__avatar--mobile'
+                    />
                 </div>
-
-                    <Button 
-                    classname='header__button'
-                    text='UPLOAD'
-                    click={onClick}/>
-               
+                <Button 
+                classname='header__button'
+                text='UPLOAD'
+                click={onClick}
+                />
                 <Avatar
-                    classname='header__avatar header__avatar--tablet '/>
+                classname='header__avatar header__avatar--tablet '
+                />
             </div>
         </header>
         </> 
     )
+    
 }
 
 export default Header;

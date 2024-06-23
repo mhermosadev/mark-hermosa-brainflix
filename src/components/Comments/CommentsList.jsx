@@ -4,7 +4,6 @@ import Avatar from "../Avatar/Avatar"
 
 const CommentsList = ({name, date, comment, click}) => {
 
-
     return (
         <>
         <div className="comment__wrapper">
@@ -23,6 +22,7 @@ const CommentsList = ({name, date, comment, click}) => {
         </div>
         </>
     )
+    
 }
 
 export default CommentsList;
