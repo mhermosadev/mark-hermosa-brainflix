@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import axios from 'axios';  
 
 const UploadForm = () => {
 
@@ -20,8 +21,23 @@ const UploadForm = () => {
         setDescription(event.target.value)
     }
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
         event.preventDefault();
+
+        const apiKEY = '?api_key=8bf1809d-0d2a-456e-aa8f-29069d90323a';
+        const apiURL = 'http://localhost:8000';
+        const newVideo = {
+            title: title,
+            description: description
+            };
+
+        try {
+            const postResponse = await axios.post(`${apiURL}/videos/${apiKEY}`, newVideo);
+            console.log(postResponse.data)
+
+        } catch (error) {
+            console.log(error)
+        }
 
         // NOTIFICATION THAT VIDEO IS UPLOADED SUCCESFULLY //
         Swal.fire({

@@ -9,12 +9,12 @@ const VideosList = ({id}) => {
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {
-        const apiKEY = '/?api_key=8bf1809d-0d2a-456e-aa8f-29069d90323a';
-        const apiURL = 'https://unit-3-project-api-0a5620414506.herokuapp.com/';
-        
+        const apiKEY = '?api_key=8bf1809d-0d2a-456e-aa8f-29069d90323a';
+        const apiURL = 'http://localhost:8000';
+            
         const fetchVideoList = async () => {
             try {
-                const response = await axios.get(`${apiURL}videos${apiKEY}`);
+                const response = await axios.get(`${apiURL}/videos/${apiKEY}`);
                 const videoList = response.data;
                 const filteredList = videoList.filter((video) => {
                     return video.id !== id;

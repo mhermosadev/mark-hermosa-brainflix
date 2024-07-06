@@ -13,27 +13,25 @@ import Swal from "sweetalert2";
 const Main = ({id}) => {
 
     const apiKEY = '?api_key=8bf1809d-0d2a-456e-aa8f-29069d90323a';
-    const apiURL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
+    const apiURL = 'http://localhost:8000';
 
     const [featured, setFeatured] = useState();
     const [title, setTitle] = useState();
     const [channel, setChannel] = useState();
     const [timestamp, setTimestamp] = useState();
     const [description, setDescription] = useState();
-    const [likes, setLikes] = useState();
+    const [likes, setLikes] = useState(4325324);
     const [views, setViews] = useState();
     const [counter, setCounter] = useState();
     const [comment, setComment] = useState([]);
-    const [newCommentArr, setnewCommentArr] = useState()
-    const [deleteComment, setDeleteComment] = useState()
-    const [error, setError] = useState(false)
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         
         const FetchDefaultVideo = async () => {
 
             try {
-                const response = await axios.get(`${apiURL}/videos/${id}${apiKEY}`);
+                const response = await axios.get(`${apiURL}/videos/${id}/${apiKEY}`);
                 const defaultVideo = response.data
                 setError(false)
                 setFeatured(defaultVideo.image)
@@ -53,8 +51,10 @@ const Main = ({id}) => {
 
         FetchDefaultVideo()
 
-    }, [id, newCommentArr, deleteComment])
+    }, [id])
 
+    console.log(likes)
+    
     return (
         <>
         {error && <Navigate to='/404' /> }
@@ -64,7 +64,8 @@ const Main = ({id}) => {
             />
             <div className="main__wrapper--desktop"> 
                 <aside className="main__wrapper--left"> 
-                    <FeaturedVideoInfo 
+                    <FeaturedVideoInfo
+                    id={id}
                     title={title}
                     channel={channel}
                     timestamp={timestamp}
@@ -72,10 +73,13 @@ const Main = ({id}) => {
                     likes={likes}
                     views={views}
                     counter={counter} 
+                    setLikes={setLikes}
+
                     />
                     <Form 
                     id={id}
-                    setnewCommentArr={setnewCommentArr}
+                    setComment={setComment}
+                    setCounter={setCounter}
                     />
                     <div className='comments'>
                         {comment.map((comment) => {
@@ -100,8 +104,9 @@ const Main = ({id}) => {
                                         const deleteComment = async () => {
                                             try {
                                                 const response = await axios.delete(`${apiURL}/videos/${id}/comments/${comment.id}${apiKEY}`);
-                                                setDeleteComment(response)
-                    
+                                                setComment(response.data)
+                                                setCounter(response.data.length)
+                                                
                                             } catch (error) {
                                                 console.log(error)
                                             }
@@ -145,7 +150,11 @@ const Main = ({id}) => {
         </main>
         </>
     )
+
+    
        
    }
+
+  
    
 export default Main;
