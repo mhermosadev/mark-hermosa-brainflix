@@ -92,9 +92,19 @@
             width:  2.25vw;     
         }
     }
+
+    
     &--icon-views {
         @extend .hero__img--icon-likes;
         background-image: url(../../assets/icons/views.svg);
+        
+    }
+
+    &--icon-hover {
+        &:hover {
+            cursor: pointer;
+            filter: sepia(100%) hue-rotate(165deg) invert(100%) saturate(400%)
+        }
     }
 }
 
