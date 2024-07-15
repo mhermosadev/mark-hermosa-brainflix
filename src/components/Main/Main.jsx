@@ -20,7 +20,7 @@ const Main = ({id}) => {
     const [channel, setChannel] = useState();
     const [timestamp, setTimestamp] = useState();
     const [description, setDescription] = useState();
-    const [likes, setLikes] = useState(4325324);
+    const [likes, setLikes] = useState();
     const [views, setViews] = useState();
     const [counter, setCounter] = useState();
     const [comment, setComment] = useState([]);
@@ -43,6 +43,7 @@ const Main = ({id}) => {
                 setViews(defaultVideo.views)
                 setCounter(defaultVideo.comments.length)
                 setComment(defaultVideo.comments.sort((a, b) => b.timestamp - a.timestamp))
+    
             } catch (error) {
                 setError(true)
                 console.log(error)
@@ -52,8 +53,6 @@ const Main = ({id}) => {
         FetchDefaultVideo()
 
     }, [id])
-
-    console.log(likes)
     
     return (
         <>
@@ -80,9 +79,10 @@ const Main = ({id}) => {
                     id={id}
                     setComment={setComment}
                     setCounter={setCounter}
+
                     />
                     <div className='comments'>
-                        {comment.map((comment) => {
+                        {comment.map((comment, index) => {
 
                             const onClick = () => {
                                 //ALERT BEFORE USER CAN DELETE COMMENTS//
@@ -104,7 +104,7 @@ const Main = ({id}) => {
                                         const deleteComment = async () => {
                                             try {
                                                 const response = await axios.delete(`${apiURL}/videos/${id}/comments/${comment.id}${apiKEY}`);
-                                                setComment(response.data)
+                                                setComment(response.data.sort((a, b) => b.timestamp - a.timestamp))
                                                 setCounter(response.data.length)
                                                 
                                             } catch (error) {
@@ -126,14 +126,36 @@ const Main = ({id}) => {
                                     }
                                   });
                             }
+                            const likeComment = async (e) => {
+
+                                let defaultLike = comment.likes
+
+                                e.preventDefault()
+                                const apiKEY = '?api_key=8bf1809d-0d2a-456e-aa8f-29069d90323a';
+                                const apiURL = 'http://localhost:8000';
+                        
+                                let updateLike = {
+                                    like: defaultLike
+                                }
+                        
+                                try {
+                                    const postResponse = await axios.patch(`${apiURL}/videos/${id}/comments/${comment.id}${apiKEY}`, updateLike);
+                                    setComment(postResponse.data.sort((a, b) => b.timestamp - a.timestamp))
+                                } catch (error) {
+                                    console.log(error) 
+                                }
+                            }
+
                         return (
-                            <div className="comment">
+                            <div className="comment" key={comment.id}>
                                 <CommentsList 
                                 key={comment.id}
                                 name={comment.name}
                                 date={new Date(comment.timestamp).toLocaleDateString()}
                                 comment={comment.comment}
                                 click={onClick}
+                                incrementor={likeComment}
+                                counter={comment.likes}
                                 />
                             </div>
                         )
@@ -151,10 +173,6 @@ const Main = ({id}) => {
         </>
     )
 
-    
-       
    }
 
-  
-   
 export default Main;

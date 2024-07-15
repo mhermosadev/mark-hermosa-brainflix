@@ -33,12 +33,12 @@ const VideosList = ({id}) => {
 
     return (
         <section className="videos">
-            <h2 className="videos__title">NEXT VIDEOS</h2>
+            <h2  className="videos__title">NEXT VIDEOS</h2>
             {videos.map((data) => {
 
                 return (
 
-                    <Link className="videos__link" to={`/videoplayer/${data.id}`} >
+                    <Link key={data.id} className="videos__link" to={`/videoplayer/${data.id}`} >
                         <Videos
                         key={data.id} 
                         thumbnail={data.image}

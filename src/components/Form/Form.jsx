@@ -34,7 +34,7 @@ const Form = ({id, setComment, setCounter}) => {
         const apiKEY = '?api_key=8bf1809d-0d2a-456e-aa8f-29069d90323a';
         const apiURL = 'http://localhost:8000';
         const newPost = {
-            name: 'Mark Hermosa',
+            name: 'Randomized',
             comment: newComment
             };
         try {

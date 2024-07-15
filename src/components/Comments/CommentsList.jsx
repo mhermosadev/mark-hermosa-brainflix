@@ -2,7 +2,7 @@ import './CommentsList.scss';
 import Avatar from "../Avatar/Avatar"
 
 
-const CommentsList = ({name, date, comment, click}) => {
+const CommentsList = ({name, date, comment, click, incrementor, counter}) => {
 
     return (
         <>
@@ -16,6 +16,12 @@ const CommentsList = ({name, date, comment, click}) => {
                 </div>
                 <div className='comment__wrapper--comment'>
                     <p className="comment__text comment__text--comment">{comment}</p>
+                </div>
+                <div className='comment__wrapper--comment'>
+                    <div className='comment__wrapper--like'>
+                        <div onClick={incrementor} className='comment__icon--like'></div>
+                        <p className='comment__text--counter'>{counter}</p>
+                    </div>
                     <div onClick={click} className="comment__icon--delete"></div>
                 </div>
             </div>
@@ -25,4 +31,4 @@ const CommentsList = ({name, date, comment, click}) => {
     
 }
 
-export default CommentsList;
+export default CommentsList
